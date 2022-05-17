@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login - Ikea Karate Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Players List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formData">Players List
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/form">Add New Player</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formDataCompetition">Competition List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formCompetition">Add New Competition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kumite</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <table id="example" class="table table-bordered" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Club</th>
+                    <th>Date Of Birth</th>
+                    <th>Degree</th>
+                    <th>Sex</th>
+                    <th>Photo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="player : ${playerList}">
+                    <td th:text="${player.firstName}">First Name</td>
+                    <td th:text="${player.lastName}">Last Name</td>
+                    <td th:text="${player.club}">Club</td>
+                    <td th:text="${player.dateOfBirth}">Date Of Birth</td>
+                    <td th:text="${player.degree}">Degree</td>
+                    <td th:text="${player.sex}">Sex</td>
+                    <td th:text="${player.photo}">Photo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+<script>
+
+
+</script>
+
+</body>
+</html>

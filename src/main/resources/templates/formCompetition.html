@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login - Ikea Karate Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Players List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formData">Players List
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/form">Add New Player</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formDataCompetition">Competition List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formCompetition">Add New Competition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kumite</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="container">
+    <form action="#" th:action="@{/formValidateCompetition}" th:object="${competition}" method="post" class="container-fluid text-center">
+            <table>
+                <tr><td></td></tr>
+                <tr>
+                    <td><input type="text" th:field="*{lastName}" placeholder="Last Name"/></td>
+                    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+                </tr>
+                <tr>
+                    <td><input type="text" th:field="*{sex}" placeholder="Sex"/></td>
+                    <td th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Sex Error</td>
+                </tr>
+                <tr>
+                    <td><input type="text" th:field="*{vintage}" placeholder="Club"/></td>
+                    <td th:if="${#fields.hasErrors('vintage')}" th:errors="*{vintage}">Vintage Error</td>
+                </tr>
+                <tr>
+                    <td><input type="text" th:field="*{category}" placeholder="Category"/></td>
+                    <td th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Category Error</td>
+                </tr>
+                <tr><td></td><td></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Submit</button></td>
+                </tr>
+            </table>
+    </form>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+<script>
+
+
+</script>
+
+</body>
+</html>
