@@ -44,24 +44,24 @@
 
 <div class="container">
     <div class="container">
-    <form action="#" th:action="@{/formValidateCompetition}" th:object="${competition}" method="post" class="container-fluid text-center">
+    <form action="#" th:action="@{/formValidate}" th:object="${playerKumite}" method="post" class="container-fluid text-center">
             <table>
                 <tr><td></td></tr>
+                <tr>
+                    <td><input type="text" th:field="*{firstName}" placeholder="First Name"/></td>
+                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+                </tr>
                 <tr>
                     <td><input type="text" th:field="*{lastName}" placeholder="Last Name"/></td>
                     <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
                 </tr>
                 <tr>
-                    <td><input type="text" th:field="*{sex}" placeholder="Sex"/></td>
-                    <td th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Sex Error</td>
+                    <td><input type="text" th:field="*{club}" placeholder="Club"/></td>
+                    <td th:if="${#fields.hasErrors('club')}" th:errors="*{club}">Club Error</td>
                 </tr>
                 <tr>
-                    <td><input type="text" th:field="*{vintage}" placeholder="Club"/></td>
-                    <td th:if="${#fields.hasErrors('vintage')}" th:errors="*{vintage}">Vintage Error</td>
-                </tr>
-                <tr>
-                    <td><input type="text" th:field="*{category}" placeholder="Category"/></td>
-                    <td th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Category Error</td>
+                    <td><input type="text" th:field="*{degree}" placeholder="Degree (kiu)"/></td>
+                    <td th:if="${#fields.hasErrors('degree')}" th:errors="*{degree}">Degree Error</td>
                 </tr>
                 <tr><td></td><td></td>
                 </tr>
