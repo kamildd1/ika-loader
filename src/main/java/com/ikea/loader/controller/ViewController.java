@@ -3,6 +3,7 @@ package com.ikea.loader.controller;
 import com.ikea.loader.model.Admin;
 import com.ikea.loader.model.Competition;
 import com.ikea.loader.model.Player;
+import com.ikea.loader.model.PlayerKumite;
 import com.ikea.loader.service.main.MainService;
 import com.ikea.loader.service.storage.DataStorage;
 import com.ikea.loader.service.validation.ValidationFormService;
@@ -33,6 +34,11 @@ public class ViewController {
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String showPlayerForm(Player player) {
         return "form";
+    }
+
+    @RequestMapping(value = "/formKumite", method = RequestMethod.GET)
+    public String showPlayerFormKumite(PlayerKumite playerKumite) {
+        return "formKumite";
     }
 
     @RequestMapping(value = "/formCompetition", method = RequestMethod.GET)
