@@ -1,5 +1,6 @@
 package com.ikea.loader.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
@@ -9,6 +10,7 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Player {
 
     public String firstName;

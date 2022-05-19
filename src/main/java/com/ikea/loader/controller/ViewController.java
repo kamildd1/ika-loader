@@ -73,5 +73,11 @@ public class ViewController {
         model.addAttribute("competitionList", competitionList);
         return "formDataCompetition";
     }
-}
 
+    @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    public String showPlayerPayment(Model model){
+      //  List<Player> playerPaymentList = dataStorage.getFirstName();
+     //   model.addAttribute("playerPaymentList", playerPaymentList);
+        return "payment";
+    }
+}
