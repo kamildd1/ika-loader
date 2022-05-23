@@ -4,17 +4,25 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.*;
 import java.io.InputStream;
 import java.sql.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@Entity
 public class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int id;
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String firstName;
 
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String lastName;
 
     public Date dateOfBirth;
@@ -27,6 +35,10 @@ public class Player {
 
     public InputStream photo;
 
+    public Player() {
+
+    }
+
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("firstName", firstName);
@@ -37,5 +49,13 @@ public class Player {
         json.put("sex", sex);
         //json.put("photo", photo);
         return json;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }

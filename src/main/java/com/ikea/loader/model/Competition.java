@@ -3,17 +3,24 @@ package com.ikea.loader.model;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
 
 @Getter
 @Setter
 public class Competition {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int id;
     public String category;
 
     public String sex;
 
     public String vintage;
 
+    @OneToOne(cascade = CascadeType.ALL)
     public String lastName;
 
     public JSONObject toJson() {
