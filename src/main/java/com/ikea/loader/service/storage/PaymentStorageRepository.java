@@ -1,9 +1,9 @@
 package com.ikea.loader.service.storage;
 
-import com.ikea.loader.model.Player;
+import com.ikea.loader.model.Payment;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DataStorageRepository extends MongoRepository<Player, String> {
+public interface PaymentStorageRepository extends MongoRepository<Payment, String> {
 }

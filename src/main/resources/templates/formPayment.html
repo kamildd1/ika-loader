@@ -1,17 +1,18 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Payments</title>
+    <meta charset="UTF-8"/>
+    <title>Login - Ikea Karate Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
 </head>
 <body>
+
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Players Payments</a>
+        <a class="navbar-brand" href="/">Players List</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -24,12 +25,15 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formData">Add New Player</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/form">Add New Player</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/dataPayment">Payment List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/dataPayment">Add New Payment</a>
                 <li class="nav-item">
                     <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formDataCompetition">Competition List</a>
                 </li>
@@ -43,26 +47,35 @@
         </div>
     </div>
 </nav>
+
 <div class="container">
-    <div class="row">
-        <div class="col-lg-10 mt-5 mb-5">
-            <table id="example" class="table table-bordered" style="width: 100%">
-                <thead>
+    <div class="container">
+        <form action="#" th:action="@{/formValidatePayment}" th:object="${payment}" method="post" class="container-fluid text-center">
+            <table>
+                <tr><td></td></tr>
                 <tr>
-                    <th>Player</th>
-                    <th>Club</th>
-                    <th>Price</th>
+                    <td><input type="text" th:field="*{firstName}" placeholder="First Name"/></td>
+                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
                 </tr>
-                </thead>
-                <tbody>
-                <tr th:each="player : ${playerList}">
-                <td th:text="${player.firstName.lastName}"></td>
-                <td th:text="${player.club}"></td>
-                <td th:text="${payment.price}"></td>
+                <tr>
+                    <td><input type="text" th:field="*{lastName}" placeholder="Last Name"/></td>
+                    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
                 </tr>
-                </tbody>
+                <tr>
+                    <td><input type="text" th:field="*{club}" placeholder="Club"/></td>
+                    <td th:if="${#fields.hasErrors('club')}" th:errors="*{club}">Club Error</td>
+                </tr>
+                <tr>
+                    <td><input type="text" th:field="*{price}" placeholder="Price"/></td>
+                    <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+                </tr>
+                <tr><td></td><td></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Submit</button></td>
+                </tr>
             </table>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -70,5 +83,11 @@
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+<script>
+
+
+</script>
+
 </body>
 </html>

@@ -1,9 +1,6 @@
 package com.ikea.loader.controller;
 
-import com.ikea.loader.model.Admin;
-import com.ikea.loader.model.Competition;
-import com.ikea.loader.model.Player;
-import com.ikea.loader.model.PlayerKumite;
+import com.ikea.loader.model.*;
 import com.ikea.loader.service.main.MainService;
 import com.ikea.loader.service.storage.DataStorage;
 import com.ikea.loader.service.validation.ValidationFormService;
@@ -73,11 +70,20 @@ public class ViewController {
         model.addAttribute("competitionList", competitionList);
         return "formDataCompetition";
     }
-
-//    @RequestMapping(value = "/payment", method = RequestMethod.POST)
-//    public String showPlayerPayment(Model model){
-//        List<String> playerPaymentList = dataStorage.;
-//        model.addAttribute("playerPaymentList", playerPaymentList);
-//        return "payment";
-//    }
+    @RequestMapping(value = "/formPayment", method = RequestMethod.GET)
+    public String showPaymentForm(Payment payment) {
+        return "formPayment";
+    }
+    @RequestMapping(value ="/formDataPayment", method = RequestMethod.GET)
+    public String showPaymentData(Model model){
+        List<Payment> paymentList = dataStorage.getAllDataPayment();
+        model.addAttribute("paymentList", paymentList);
+        return "formDataPayment";
+    }
+    @RequestMapping(value ="/formValidatePayment", method = RequestMethod.POST)
+    public String checkPaymentForm(Payment payment, Model model){
+        String page = validationFormService.validatePaymentAndReturnPage(payment, model);
+        if (page.equals("resultPayment")) mainService.processPaymentData(payment);
+        return page;
+    }
 }

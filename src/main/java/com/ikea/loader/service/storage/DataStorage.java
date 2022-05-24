@@ -14,11 +14,6 @@ public interface DataStorage {
 
     List<Competition> getAllDataCompetition();
 
-    List<String> getFirstName();
+    List<Payment> getAllDataPayment();
 
-    List<String> getLastName();
-
-    String getClub();
-
-    void savePayment(Payment payment);
 }
