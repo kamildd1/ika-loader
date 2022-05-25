@@ -86,4 +86,9 @@ public class ViewController {
         if (page.equals("resultPayment")) mainService.processPaymentData(payment);
         return page;
     }
+
+//    @RequestMapping(value = "payment", method = RequestMethod.GET)
+//    public String payments(Payment payment){
+//        payment.add
+//    }
 }
