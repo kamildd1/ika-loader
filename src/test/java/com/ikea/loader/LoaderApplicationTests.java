@@ -2,12 +2,13 @@ package com.ikea.loader;
 
 
 import com.ikea.loader.model.Competition;
+import com.ikea.loader.model.Payment;
 import com.ikea.loader.model.Player;
 import com.ikea.loader.service.storage.CompetitionStorageRepository;
 import com.ikea.loader.service.storage.DataStorageImpl;
 import com.ikea.loader.service.storage.DataStorageRepository;
+import com.ikea.loader.service.storage.PaymentStorageRepository;
 import com.ikea.loader.service.validation.ValidationFormServiceImpl;
-import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -15,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,19 +23,19 @@ import java.util.Optional;
 public class LoaderApplicationTests {
 
 	@InjectMocks
-	public DataStorageImpl dataStorage;
+	private DataStorageImpl dataStorage;
+
+	@InjectMocks
+	public ValidationFormServiceImpl validationFormService;
+
+	@Mock
+	private PaymentStorageRepository paymentStorageRepository;
 
 	@Mock
 	private DataStorageRepository dataStorageRepository;
 
 	@Mock
 	private CompetitionStorageRepository competitionStorageRepository;
-
-	@Mock
-	private Player player;
-
-	@InjectMocks
-	public ValidationFormServiceImpl validationFormService;
 
 	@Test
 	public void checkPlayers(){
@@ -56,7 +56,7 @@ public class LoaderApplicationTests {
 	}
 
 	@Test
-	public void checkData(){
+	public void checkPlayer(){
 		//given
 		//when
 		Optional<Player> playerListById = Optional.ofNullable(dataStorage.getData(String.valueOf(2)));
@@ -64,9 +64,14 @@ public class LoaderApplicationTests {
 		Assertions.assertNotNull(playerListById);
 	}
 
-//	@Test
-//	public void checkValidationPlayer(){
-//		//given
-//		Player player = new Player("Jan", "Kowalski", 2000-05-14, "club", 6, "Mezczyzna", );
-//	}
+	@Test
+	public void checkPayment(){
+		//given
+		//when
+		List<Payment> paymentList = paymentStorageRepository.findAll();
+		//then
+		Assertions.assertNotNull(paymentList);
+	}
+
+
 }

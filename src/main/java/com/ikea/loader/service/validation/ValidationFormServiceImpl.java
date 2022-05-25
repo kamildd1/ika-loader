@@ -105,7 +105,7 @@ public class ValidationFormServiceImpl implements ValidationFormService {
         }
 
 
-        if(payment.getPrice() == 0){
+        if(payment.getPrice() <= 0){
             message.append("Price").append(", ");
             isValid = false;
         }
@@ -115,7 +115,7 @@ public class ValidationFormServiceImpl implements ValidationFormService {
         if (isValid) {
             return "resultPayment";
         } else {
-            return "Payment";
+            return "formPayment";
         }
     }
 }
