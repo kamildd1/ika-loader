@@ -55,8 +55,20 @@
             <table>
                 <tr><td></td></tr>
                 <tr>
-                    <td><th:text = th:field="*{firstName}" placeholder="First Name"></th:text></td>
-                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+<!--                    <input type="text" th:field="*{firstName}">-->
+<!--                    <textarea th:field="*{firstName}"></textarea>-->
+<!--                    <td th:each="player: ${player}" th:field="*{firstName}" placeholder="First Name"></td>-->
+<!--                    <td th:text="${player}"/>-->
+<!--                    <td><td th:text="${}" th:field="*{firstName}" placeholder="First Name"/></td>-->
+<!--                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>-->
+                    <td>
+                    <label for="players">Choose a player:</label>
+                    <select name="players" id="players">
+                        <option th:value="${payment.firstName}"></option>
+<!--                        <option th:field="*{firstName}"></option>-->
+                        <option value="volvo">Volvo</option>
+                    </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="text" th:field="*{lastName}" placeholder="Last Name"/></td>
