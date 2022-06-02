@@ -14,7 +14,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
+//@Entity
 public class Player {
 
     @Id

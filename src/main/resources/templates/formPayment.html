@@ -54,22 +54,45 @@
         <form action="#" th:action="@{/formValidatePayment}" th:object="${payment}" method="post" class="container-fluid text-center">
             <table>
                 <tr><td></td></tr>
+<!--                <tr>-->
+<!--&lt;!&ndash;                    <input type="text" th:field="*{firstName}">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <textarea th:field="*{firstName}"></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td th:each="player: ${player}" th:field="*{firstName}" placeholder="First Name"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td th:text="${player}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td><td th:text="${}" th:field="*{firstName}" placeholder="First Name"/></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>&ndash;&gt;-->
+<!--                    <td>-->
+<!--                    <label for="players">Choose a player:</label>-->
+<!--                    <select name="players" id="players">-->
+<!--                        <option th:value="${payment.firstName}"></option>-->
+<!--&lt;!&ndash;                        <option th:field="*{firstName}"></option>&ndash;&gt;-->
+<!--                        <option value="volvo">Volvo</option>-->
+<!--                    </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+
                 <tr>
-<!--                    <input type="text" th:field="*{firstName}">-->
-<!--                    <textarea th:field="*{firstName}"></textarea>-->
-<!--                    <td th:each="player: ${player}" th:field="*{firstName}" placeholder="First Name"></td>-->
-<!--                    <td th:text="${player}"/>-->
-<!--                    <td><td th:text="${}" th:field="*{firstName}" placeholder="First Name"/></td>-->
-<!--                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>-->
+                    <td><label>Choose a player:</label></td>
                     <td>
-                    <label for="players">Choose a player:</label>
-                    <select name="players" id="players">
-                        <option th:value="${payment.firstName}"></option>
-<!--                        <option th:field="*{firstName}"></option>-->
-                        <option value="volvo">Volvo</option>
-                    </select>
+<!--                        <select th:field="*{idPayments}">-->
+<!--                            <option th:each="player : ${Player}"-->
+<!--                                    th:text="${player}"-->
+<!--                                    th:value="${player}">-->
+<!--                        </select>-->
+
+                        <select th:field="*{idPayments}">
+<!--                            <option value="">Nobody selected</option>-->
+                            <option th:each="i : ${Player}"
+                                    th:value="${i}"
+                                    th:text="${i}">
+                            </option>
+                        </select>
+
                     </td>
                 </tr>
+
+
+
                 <tr>
                     <td><input type="text" th:field="*{lastName}" placeholder="Last Name"/></td>
                     <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>

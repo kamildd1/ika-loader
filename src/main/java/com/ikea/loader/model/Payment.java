@@ -1,6 +1,7 @@
 package com.ikea.loader.model;
 
 import com.ikea.loader.service.storage.DataStorage;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
@@ -14,8 +15,6 @@ import javax.persistence.OneToOne;
 @Getter
 @Setter
 public class Payment {
-
-    private DataStorage dataStorage;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
