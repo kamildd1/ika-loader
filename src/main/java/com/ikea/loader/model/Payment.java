@@ -1,12 +1,9 @@
 package com.ikea.loader.model;
 
-import com.ikea.loader.service.storage.DataStorage;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
 import org.springframework.data.annotation.Id;
-
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -6,10 +6,12 @@ import com.ikea.loader.service.storage.DataStorage;
 import com.ikea.loader.service.validation.ValidationFormService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
@@ -54,7 +56,6 @@ public class ViewController {
         if (page.equals("resultCompetition")) mainService.processCompetitionData(competition);
         return page;
     }
-
     @RequestMapping(value = "/formData", method = RequestMethod.GET)
     public String showPlayerDataForm(Model model) {
         List<Player> playerList = dataStorage.getAllDataPlayer();
@@ -69,8 +70,10 @@ public class ViewController {
         return "formDataCompetition";
     }
     @RequestMapping(value = "/formPayment", method = RequestMethod.GET)
-    public String showPaymentForm(Payment payment) {
-        return "formPayment";
+    public String showPaymentForm(Payment payment, Model model) {
+        List<Player> playerList = dataStorage.getAllDataPlayer();
+        model.addAttribute("playerList", playerList);
+        return "formValidatePayment";
     }
     @RequestMapping(value ="/formDataPayment", method = RequestMethod.GET)
     public String showPaymentData(Model model){
@@ -79,9 +82,7 @@ public class ViewController {
         return "formDataPayment";
     }
     @RequestMapping(value ="/formValidatePayment", method = RequestMethod.POST)
-    public String checkPaymentForm(Payment payment, Model model){
-        String page = validationFormService.validatePaymentAndReturnPage(payment, model);
-        if (page.equals("resultPayment")) mainService.processPaymentData(payment);
-        return page;
+    public String checkPaymentForm(){
+        return "resultPayment";
     }
 }

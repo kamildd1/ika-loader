@@ -37,6 +37,7 @@ public class LoaderApplicationTests {
 	@Mock
 	private CompetitionStorageRepository competitionStorageRepository;
 
+
 	@Test
 	public void checkPlayers(){
 		//given
@@ -72,6 +73,4 @@ public class LoaderApplicationTests {
 		//then
 		Assertions.assertNotNull(paymentList);
 	}
-
-
 }
