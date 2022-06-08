@@ -73,16 +73,19 @@ public class ViewController {
     public String showPaymentForm(Payment payment, Model model) {
         List<Player> playerList = dataStorage.getAllDataPlayer();
         model.addAttribute("playerList", playerList);
-        return "formValidatePayment";
+        return "formPayment";
     }
     @RequestMapping(value ="/formDataPayment", method = RequestMethod.GET)
-    public String showPaymentData(Model model){
+    public String showPaymentData(Payment payment, Model model){
         List<Payment> paymentList = dataStorage.getAllDataPayment();
         model.addAttribute("paymentList", paymentList);
         return "formDataPayment";
     }
     @RequestMapping(value ="/formValidatePayment", method = RequestMethod.POST)
-    public String checkPaymentForm(){
-        return "resultPayment";
+    public String checkPaymentForm(Payment payment, Model model){
+        String page = validationFormService.validatePaymentAndReturnPage(payment, model);
+        if (page.equals("resultCompetition")) mainService.processPaymentData(payment);
+        return page;
+      //  return "resultPayment";
     }
 }

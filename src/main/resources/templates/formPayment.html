@@ -21,28 +21,28 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formData">Players List
+                    <a class="nav-link" href="http://localhost:8084/formData">Players List
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/form">Add New Player</a>
+                    <a class="nav-link" href="http://localhost:8084/form">Add New Player</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formDataPayment">Payment List</a>
+                    <a class="nav-link" href="http://localhost:8084/formDataPayment">Payment List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formPayment">Add New Payment</a>
+                    <a class="nav-link" href="http://localhost:8084/formPayment">Add New Payment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formDataCompetition">Competition List</a>
+                    <a class="nav-link" href="http://localhost:8084/formDataCompetition">Competition List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formCompetition">Add New Competition</a>
+                    <a class="nav-link" href="http://localhost:8084/formCompetition">Add New Competition</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://46.41.135.59:18080/loader-ikea/formKumite">Kumite</a>
+                    <a class="nav-link" href="http://localhost:8084/formKumite">Kumite</a>
                 </li>
             </ul>
         </div>
@@ -51,12 +51,11 @@
 
 <div class="container">
     <div class="container">
-        <form action="#" th:action="@{/formPayment}" th:object="${payment}" method="post" class="container-fluid text-center">
+        <form action="#" th:action="@{/formPaymentValidate}" th:object="${payment}" method="post" class="container-fluid text-center">
             <table>
                 <tr><td></td></tr>
                 <tr>
                     <td>
-
                         <label>
                             Choose a player:
                             <select th:field="*{firstName}">
@@ -64,10 +63,8 @@
                                         th:value="${i.firstName + ' ' + i.lastName}"
                                         th:text="${i.firstName + ' ' + i.lastName}">
                                 </option>
-
                             </select>
                         </label>
-
                     </td>
                 </tr>
                 <tr>
