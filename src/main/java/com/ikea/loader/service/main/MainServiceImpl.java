@@ -12,10 +12,9 @@ import org.springframework.stereotype.Service;
 public class MainServiceImpl implements MainService {
 
     private final RestClient restClient;
-    private static final String URL_PUBLISHER_PLAYER = "http://46.41.135.59:18080/publisher-ikea/save/player";
-    private static final String URL_PUBLISHER_COMPETITION = "http://46.41.135.59:18080/publisher-ikea/save/competition";
-   // private static final String URL_PUBLISHER_PAYMENT = "http://46.41.135.59:18080/publisher-ikea/save/payment";
-    private static final String URL_PUBLISHER_PAYMENT = "http://localhost:8081/save/payment";
+    private static final String URL_PUBLISHER_PLAYER = "http://localhost:8085/save/player";
+    private static final String URL_PUBLISHER_COMPETITION = "http://localhost:8085/save/competition";
+    private static final String URL_PUBLISHER_PAYMENT = "http://localhost:8085/save/payment";
 
     @Override
     public void processPlayerData(Player player) {

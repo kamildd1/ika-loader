@@ -1,9 +1,11 @@
 package com.ikea.loader.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.InputStream;
 import java.util.Date;
@@ -20,6 +22,8 @@ public class Player {
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String lastName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     public Date dateOfBirth;
 
     public String club;

@@ -69,7 +69,7 @@
                     <td th:text="${player.firstName}">First Name</td>
                     <td th:text="${player.lastName}">Last Name</td>
                     <td th:text="${player.club}">Club</td>
-                    <td th:text="${player.dateOfBirth}">Date Of Birth</td>
+                    <td th:text="${#dates.format(player.dateOfBirth, 'dd-MM-yyyy')}">Date Of Birth</td>
                     <td th:text="${player.degree}">Degree</td>
                     <td th:text="${player.sex}">Sex</td>
                     <td th:text="${player.photo}">Photo</td>
@@ -85,10 +85,7 @@
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
-<script>
 
-
-</script>
 
 </body>
 </html>
