@@ -89,22 +89,6 @@ public class ValidationFormServiceImpl implements ValidationFormService {
     public String validatePaymentAndReturnPage(Payment payment, Model model){
         boolean isValid = true;
         StringBuilder message = new StringBuilder();
-        if(payment.getFirstName().isEmpty()){
-            message.append("First Name").append(", ");
-            isValid = false;
-        }
-
-        if(payment.getLastName().isEmpty()){
-            message.append("Last Name").append(", ");
-            isValid = false;
-        }
-
-        if(payment.getClub().isEmpty()){
-            message.append("Club").append(", ");
-            isValid = false;
-        }
-
-
         if(payment.getPrice() <= 0){
             message.append("Price").append(", ");
             isValid = false;

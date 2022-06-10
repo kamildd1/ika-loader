@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
+import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.InputStream;
@@ -12,9 +13,10 @@ import java.util.Date;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public String id;
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String firstName;
@@ -23,7 +25,8 @@ public class Player {
     public String lastName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     public Date dateOfBirth;
 
     public String club;

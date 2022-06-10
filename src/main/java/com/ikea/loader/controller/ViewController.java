@@ -6,12 +6,9 @@ import com.ikea.loader.service.storage.DataStorage;
 import com.ikea.loader.service.validation.ValidationFormService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
@@ -44,7 +41,7 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/formValidate", method = RequestMethod.POST)
-    public String checkPlayerForm(Player player, Model model) {
+    public String checkPlayerForm( Player player, Model model) {
         String page = validationFormService.validatePlayerAndReturnPage(player, model);
         if (page.equals("result")) mainService.processPlayerData(player);
         return page;
@@ -84,8 +81,7 @@ public class ViewController {
     @RequestMapping(value ="/formValidatePayment", method = RequestMethod.POST)
     public String checkPaymentForm(Payment payment, Model model){
         String page = validationFormService.validatePaymentAndReturnPage(payment, model);
-        if (page.equals("resultCompetition")) mainService.processPaymentData(payment);
+        if (page.equals("resultPayment")) mainService.processPaymentData(payment);
         return page;
-      //  return "resultPayment";
     }
 }

@@ -51,7 +51,7 @@
 
 <div class="container">
     <div class="container">
-    <form action="#" th:action="@{/formValidate}" th:object="${player}" method="post" class="container-fluid text-center">
+        <form action="#" th:action="@{/formValidate}" th:object="${player}" method="post" class="container-fluid text-center">
             <table>
                 <tr><td></td></tr>
                 <tr>
@@ -77,6 +77,8 @@
                 <tr><td>Date of birth:</td></tr>
                 <tr>
                     <td><input type="date" th:field="*{dateOfBirth}"/></td>
+                    <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Sex Error</td>
+
                 </tr>
                 <tr>
                     <td>Photo</td>
@@ -91,7 +93,6 @@
     </form>
     </div>
 </div>
-
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
