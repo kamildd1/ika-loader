@@ -27,8 +27,8 @@ public class Player {
     public String lastName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+ //   @JsonFormat(shape = JsonFormat.Shape.STRING)
          //   objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     public Date dateOfBirth;
 
