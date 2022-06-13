@@ -53,14 +53,12 @@
                 <thead>
                 <tr>
                     <th>Player</th>
-                    <th>Club</th>
                     <th>Price (zł)</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="payment : ${paymentList}">
-                <td th:text="${payment.firstName.concat(' ').concat(payment.lastName)}"></td>
-<!--                <td th:text="${payment.club}"></td>-->
+                <td th:text="${payment.firstName.concat(' ')}"></td>
                 <td th:text="${payment.price}"></td>
                 </tr>
                 </tbody>

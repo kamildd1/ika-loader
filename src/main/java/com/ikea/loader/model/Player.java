@@ -1,6 +1,7 @@
 package com.ikea.loader.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Getter
@@ -17,7 +19,7 @@ public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public String id;
+    public BigInteger id;
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String firstName;
 
@@ -27,6 +29,7 @@ public class Player {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 //    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+         //   objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     public Date dateOfBirth;
 
     public String club;

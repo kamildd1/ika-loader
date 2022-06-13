@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
 import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Getter
 @Setter
@@ -13,7 +13,7 @@ public class Competition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long idPayments;
+    public BigInteger idPayments;
 
     public long id;
     public String category;
