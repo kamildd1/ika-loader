@@ -26,8 +26,10 @@ public class Player {
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String lastName;
 
+
+   // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
  //   @JsonFormat(shape = JsonFormat.Shape.STRING)
          //   objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     public Date dateOfBirth;
