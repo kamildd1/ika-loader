@@ -51,16 +51,20 @@
         <div class="col-lg-10 mt-5 mb-5">
             <table id="example" class="table table-bordered" style="width: 100%">
                 <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Price (zł)</th>
-                </tr>
+                    <tr>
+                        <th>Player</th>
+                        <th>Price</th>
+                        <th>Type of price</th>
+                        <th>Date and time</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr th:each="payment : ${paymentList}">
-                <td th:text="${payment.firstName.concat(' ')}"></td>
-                <td th:text="${payment.price}"></td>
-                </tr>
+                    <tr th:each="payment : ${paymentList}">
+                    <td th:text="${payment.firstName}"></td>
+                    <td th:text="${payment.price}"></td>
+                    <td th:text="${payment.typeOfPrice}"></td>
+                    <td th:text="${payment.dateAndTime}"></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

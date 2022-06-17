@@ -60,7 +60,7 @@
                             Choose a player:
                             <select th:field="*{firstName}">
                                 <option th:each="i : ${playerList}"
-                                        th:value="${i.firstName + ' ' + i.lastName}"
+                                        th:value="${i.firstName}"
                                         th:text="${i.firstName + ' ' + i.lastName}">
                                 </option>
                             </select>
@@ -71,6 +71,16 @@
                     <td><input type="text" th:field="*{price}" placeholder="Price"/></td>
                     <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
                 </tr>
+                <tr><td></td><td></td>
+                </tr>
+                <label>
+                    <select th:field="*{typeOfPrice}">
+                        <option th:value="'PLN'" th:text="PLN"></option>
+                        <option th:value="'EUR'" th:text="EUR"></option>
+                        <option th:value="'GBP'" th:text="GBP"></option>
+                        <option th:value="'USD'" th:text="USD"></option>
+                    </select>
+                </label>
                 <tr><td></td><td></td>
                 </tr>
                 <tr>

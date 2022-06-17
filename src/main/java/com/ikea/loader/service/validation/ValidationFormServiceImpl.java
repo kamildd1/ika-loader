@@ -89,7 +89,7 @@ public class ValidationFormServiceImpl implements ValidationFormService {
     public String validatePaymentAndReturnPage(Payment payment, Model model){
         boolean isValid = true;
         StringBuilder message = new StringBuilder();
-        if(payment.getPrice() <= 0){
+        if(payment.getPrice() < 0){
             message.append("Price").append(", ");
             isValid = false;
         }
