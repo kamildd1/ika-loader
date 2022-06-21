@@ -42,14 +42,14 @@ public class ViewController {
 
     @RequestMapping(value = "/formValidate", method = RequestMethod.POST)
     public String checkPlayerForm( Player player, Model model) {
-        String page = validationFormService.validatePlayerAndReturnPage(player, model);
+        String page = validationFormService.validatePlayerAndReturnPage(player, model, false);
         if (page.equals("result")) mainService.processPlayerData(player);
         return page;
     }
 
     @RequestMapping(value = "/formValidateCompetition", method = RequestMethod.POST)
     public String checkCompetitionForm(Competition competition, Model model) {
-        String page = validationFormService.validateCompetitionAndReturnPage(competition, model);
+        String page = validationFormService.validateCompetitionAndReturnPage(competition, model, false);
         if (page.equals("resultCompetition")) mainService.processCompetitionData(competition);
         return page;
     }
@@ -80,7 +80,7 @@ public class ViewController {
     }
     @RequestMapping(value ="/formValidatePayment", method = RequestMethod.POST)
     public String checkPaymentForm(Payment payment, Model model){
-        String page = validationFormService.validatePaymentAndReturnPage(payment, model);
+        String page = validationFormService.validatePaymentAndReturnPage(payment, model, false);
         if (page.equals("resultPayment")) mainService.processPaymentData(payment);
         return page;
     }

@@ -25,6 +25,9 @@ public class Competition {
     @OneToOne(cascade = CascadeType.ALL)
     public String lastName;
 
+    public Competition(int i, int i1, String category, String sex, String vintage, String lastName) {
+    }
+
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("idPayments", idPayments);

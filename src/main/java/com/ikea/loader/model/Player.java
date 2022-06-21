@@ -1,9 +1,8 @@
 package com.ikea.loader.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
 import org.springframework.data.annotation.Id;
@@ -22,16 +21,11 @@ public class Player {
     public BigInteger id;
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String firstName;
-
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     public String lastName;
 
-
-   // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
- //   @JsonFormat(shape = JsonFormat.Shape.STRING)
-         //   objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     public Date dateOfBirth;
 
     public String club;
@@ -41,6 +35,9 @@ public class Player {
     public String sex;
 
     public InputStream photo;
+
+    public Player(int i, String firstName, String lastName, int i1, String club, String degree, String sex) {
+    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

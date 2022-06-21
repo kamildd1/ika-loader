@@ -26,7 +26,7 @@ public class Payment {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     public String dateAndTime = dateTime.format(formatter);
 
-    public Payment(int i, String test, int price, String pln, String s) {
+    public Payment(int i, String test, int price, String typeOfPrice, String s) {
     }
 
     public JSONObject toJson() {

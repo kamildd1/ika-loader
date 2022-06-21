@@ -7,9 +7,9 @@ import org.springframework.ui.Model;
 
 public interface ValidationFormService {
 
-    String validatePlayerAndReturnPage(Player player, Model model);
+    String validatePlayerAndReturnPage(Player player, Model model, Boolean isTest);
 
-    String validateCompetitionAndReturnPage(Competition competition, Model model);
+    String validateCompetitionAndReturnPage(Competition competition, Model model, Boolean isTest);
 
-    String validatePaymentAndReturnPage(Payment payment, Model model);
+    String validatePaymentAndReturnPage(Payment payment, Model model, Boolean isTest);
 }
