@@ -1,5 +1,6 @@
 package com.ikea.loader.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
@@ -9,13 +10,14 @@ import java.math.BigInteger;
 
 @Getter
 @Setter
+@Builder
 public class Competition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public BigInteger idPayments;
 
-    public long id;
+    public Long id;
     public String category;
 
     public String sex;
@@ -24,9 +26,6 @@ public class Competition {
 
     @OneToOne(cascade = CascadeType.ALL)
     public String lastName;
-
-    public Competition(int i, int i1, String category, String sex, String vintage, String lastName) {
-    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

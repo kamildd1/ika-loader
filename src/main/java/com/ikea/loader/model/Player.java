@@ -1,6 +1,7 @@
 package com.ikea.loader.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@Builder
 public class Player {
 
     @Id
@@ -35,9 +37,6 @@ public class Player {
     public String sex;
 
     public InputStream photo;
-
-    public Player(int i, String firstName, String lastName, int i1, String club, String degree, String sex) {
-    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
