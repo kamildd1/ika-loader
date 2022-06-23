@@ -6,9 +6,15 @@ import org.springframework.context.annotation.Configuration;
 import java.net.http.HttpClient;
 import java.time.Duration;
 
+/**
+ * This class contains REST configuration
+ */
 @Configuration
 public class RestConfiguration {
-
+    /**
+     * This method creates the httpClient
+     * @return Returns the httpClient allowing the connection
+     */
     @Bean
     public HttpClient httpClient() {
         return HttpClient.newBuilder()

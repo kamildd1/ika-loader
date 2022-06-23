@@ -13,6 +13,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class execute the Unit Tests
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class LoaderApplicationTests {
 
@@ -22,8 +25,11 @@ public class LoaderApplicationTests {
 	@Mock
 	private PaymentStorageRepository paymentStorageRepository;
 
+	/**
+	 * This method finding all Players from database
+	 */
 	@Test
-	public void checkPlayers(){
+	public void shouldCheckPlayers(){
 		//given
 		//when
 		List<Player> playerList= dataStorage.getAllDataPlayer();
@@ -31,8 +37,11 @@ public class LoaderApplicationTests {
 		Assertions.assertNotNull(playerList);
 	}
 
+	/**
+	 * This method finding all Competitions from database
+	 */
 	@Test
-	public void checkCompetitions(){
+	public void shouldCheckCompetitions(){
 		//given
 		//when
 		List<Competition> competitionList = dataStorage.getAllDataCompetition();
@@ -40,8 +49,11 @@ public class LoaderApplicationTests {
 		Assertions.assertNotNull(competitionList);
 	}
 
+	/**
+	 * This method finding Player by id from database
+	 */
 	@Test
-	public void checkPlayer(){
+	public void shouldCheckPlayer(){
 		//given
 		//when
 		Optional<Player> playerListById = Optional.ofNullable(dataStorage.getData(String.valueOf(2)));
@@ -49,8 +61,11 @@ public class LoaderApplicationTests {
 		Assertions.assertNotNull(playerListById);
 	}
 
+	/**
+	 * This method finding all Payments from database
+	 */
 	@Test
-	public void checkPayment(){
+	public void shouldCheckPayment(){
 		//given
 		//when
 		List<Payment> paymentList = paymentStorageRepository.findAll();

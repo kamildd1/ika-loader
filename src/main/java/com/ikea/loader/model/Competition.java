@@ -8,23 +8,24 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import java.math.BigInteger;
 
+/**
+ * This class contains the Competition model, fields identifying the Competition
+ */
 @Getter
 @Setter
 @Builder
+@Entity
 public class Competition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public BigInteger idPayments;
 
+    public BigInteger idPayments;
     public Long id;
     public String category;
-
     public String sex;
-
     public String vintage;
 
-    @OneToOne(cascade = CascadeType.ALL)
     public String lastName;
 
     public JSONObject toJson() {

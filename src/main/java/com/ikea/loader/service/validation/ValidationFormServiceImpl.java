@@ -6,9 +6,19 @@ import com.ikea.loader.model.Player;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+/**
+ * Service validates the fields in forms
+ */
 @Service
 public class ValidationFormServiceImpl implements ValidationFormService {
 
+    /**
+     * This method validates the input fields in Player form
+     * @param player Model Player description a player
+     * @param model Object Model
+     * @param isTest Boolean value
+     * @return Result Player template
+     */
     @Override
     public String validatePlayerAndReturnPage(Player player, Model model, Boolean isTest) {
         boolean isValid = true;
@@ -34,11 +44,6 @@ public class ValidationFormServiceImpl implements ValidationFormService {
                 isValid = false;
             }
 
-            if (player.getPhoto() != null) {
-                message.append("Photo").append(", ");
-                isValid = false;
-            }
-
             if (player.getSex().isEmpty()) {
                 message.append("Sex").append(", ");
                 isValid = false;
@@ -54,6 +59,13 @@ public class ValidationFormServiceImpl implements ValidationFormService {
         } else return null;
     }
 
+    /**
+     * This method validates the input fields in Competition form
+     * @param competition Model Competition description a competition
+     * @param model Object Model
+     * @param isTest Boolean value
+     * @return Result Player template
+     */
     @Override
     public String validateCompetitionAndReturnPage(Competition competition, Model model, Boolean isTest) {
         boolean isValid = true;
@@ -89,6 +101,13 @@ public class ValidationFormServiceImpl implements ValidationFormService {
         } else return null;
     }
 
+    /**
+     * This method validates the input fields in Payment form
+     * @param payment Model Payment description a payment
+     * @param model Object Model
+     * @param isTest Boolean value
+     * @return Result Payment template
+     */
     @Override
     public String validatePaymentAndReturnPage(Payment payment, Model model, Boolean isTest){
         boolean isValid = true;

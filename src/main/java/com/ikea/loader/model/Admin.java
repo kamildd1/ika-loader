@@ -1,5 +1,8 @@
 package com.ikea.loader.model;
 
+/**
+ * This class contains the Admin model, fields identifying the user
+ */
 public class Admin {
 
     public String login;
@@ -8,6 +11,10 @@ public class Admin {
 
     public String role;
 
+    /**
+     * Method converting data to string
+     * @return String values
+     */
     @Override
     public String toString() {
         return "Admin{" +

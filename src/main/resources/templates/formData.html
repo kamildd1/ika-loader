@@ -61,7 +61,6 @@
                     <th>Date Of Birth</th>
                     <th>Degree</th>
                     <th>Sex</th>
-                    <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,7 +71,6 @@
                     <td th:text="${#dates.format(player.dateOfBirth, 'dd-MM-yyyy')}">Date Of Birth</td>
                     <td th:text="${player.degree}">Degree</td>
                     <td th:text="${player.sex}">Sex</td>
-                    <td th:text="${player.photo}">Photo</td>
                     </tr>
                 </tbody>
             </table>

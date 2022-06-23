@@ -16,6 +16,9 @@ import org.springframework.ui.Model;
 import utils.DataTST;
 import java.math.BigInteger;
 
+/**
+ * Class execute the Mock Tests
+ */
 @RunWith(SpringRunner.class)
 public class LoaderApplicationTestsV2 {
 
@@ -30,8 +33,11 @@ public class LoaderApplicationTestsV2 {
         }
     }
 
+    /**
+     * This method validating an example Payment
+     */
     @Test
-    public void checkPaymentValidation(){
+    public void shouldCheckPaymentValidation(){
 
         //given
         Model model = DataTST.model();
@@ -48,8 +54,11 @@ public class LoaderApplicationTestsV2 {
         Assertions.assertNull(payment);
     }
 
+    /**
+     * This method validating an example Competition
+     */
     @Test
-    public void checkCompetitionValidation(){
+    public void shouldCheckCompetitionValidation(){
 
         //given
         Model model = DataTST.model();
@@ -67,8 +76,11 @@ public class LoaderApplicationTestsV2 {
         Assertions.assertNull(competition);
     }
 
+    /**
+     * This method validating an example Player
+     */
     @Test
-    public void checkPlayerValidation(){
+    public void shouldCheckPlayerValidation(){
 
         //given
         Model model = DataTST.model();

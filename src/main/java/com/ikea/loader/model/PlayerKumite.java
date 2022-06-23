@@ -7,6 +7,9 @@ import net.minidev.json.JSONObject;
 import java.io.InputStream;
 import java.sql.Date;
 
+/**
+ * This class contains the PlayerKumite model, fields identifying the PlayerKumite
+ */
 @Getter
 @Setter
 public class PlayerKumite {
