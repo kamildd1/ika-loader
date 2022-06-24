@@ -1,3 +1,6 @@
+/**
+ * This package includes implementation for MainService
+ */
 package com.ikea.loader.service.main;
 
 import com.ikea.loader.model.Competition;
@@ -7,6 +10,8 @@ import com.ikea.loader.service.rest.RestClient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.ikea.loader.service.main.MainServiceImpl.urlPublisher.*;
+
 /**
  * Service connects with Publisher Application
  */
@@ -15,9 +20,12 @@ import org.springframework.stereotype.Service;
 public class MainServiceImpl implements MainService {
 
     private final RestClient restClient;
-    private static final String URL_PUBLISHER_PLAYER = "http://localhost:8085/save/player";
-    private static final String URL_PUBLISHER_COMPETITION = "http://localhost:8085/save/competition";
-    private static final String URL_PUBLISHER_PAYMENT = "http://localhost:8085/save/payment";
+
+    public static class urlPublisher{
+        static final String URL_PUBLISHER_PLAYER = "http://localhost:8085/save/player";
+        static final String URL_PUBLISHER_COMPETITION = "http://localhost:8085/save/competition";
+        static final String URL_PUBLISHER_PAYMENT = "http://localhost:8085/save/payment";
+    }
 
     /**
      * This method sending the Player model to Publisher Application

@@ -1,3 +1,6 @@
+/**
+ * This package includes repository for Players
+ */
 package com.ikea.loader.service.storage;
 
 import com.ikea.loader.model.Player;

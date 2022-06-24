@@ -1,6 +1,8 @@
+/**
+ * This package includes model for Player
+ */
 package com.ikea.loader.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +11,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -18,6 +21,7 @@ import java.util.Date;
 @Setter
 @Builder
 @Entity
+@Table(name = "player")
 public class Player {
 
     @Id
@@ -28,18 +32,31 @@ public class Player {
     @OneToOne(mappedBy = "player", cascade = CascadeType.MERGE)
     public String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     public Date dateOfBirth;
+    public String textDate;
     public String club;
     public String degree;
     public String sex;
+    public String pattern;
+
+    /**
+     * This method convert Date to formatted string
+     * @param textDate Input parameter for the conversion Date
+     * @return String variable containing the birthday date and in a specific format
+     */
+    private String getDate(String textDate){
+        this.pattern  = "dd-MM-yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        this.textDate = simpleDateFormat.format(dateOfBirth);
+        return this.textDate;
+    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("firstName", firstName);
         json.put("lastName", lastName);
-        json.put("dateOfBirth", dateOfBirth);
+        json.put("textDate", getDate(textDate));
         json.put("club", club);
         json.put("degree", degree);
         json.put("sex", sex);

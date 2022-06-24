@@ -1,3 +1,6 @@
+/**
+ * This package includes model for Competition
+ */
 package com.ikea.loader.model;
 
 import lombok.Builder;
@@ -15,6 +18,7 @@ import java.math.BigInteger;
 @Setter
 @Builder
 @Entity
+@Table(name = "competition")
 public class Competition {
 
     @Id

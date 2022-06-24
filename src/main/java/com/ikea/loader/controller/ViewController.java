@@ -1,3 +1,6 @@
+/**
+ * This package includes controller for servicing endpoints
+ */
 package com.ikea.loader.controller;
 
 import com.ikea.loader.model.*;

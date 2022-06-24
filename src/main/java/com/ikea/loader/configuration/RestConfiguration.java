@@ -1,3 +1,6 @@
+/**
+ * This package includes configuration for REST Configuration
+ */
 package com.ikea.loader.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -7,7 +10,7 @@ import java.net.http.HttpClient;
 import java.time.Duration;
 
 /**
- * This class contains REST configuration
+ * This class contains Rest configuration
  */
 @Configuration
 public class RestConfiguration {

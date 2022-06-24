@@ -1,11 +1,20 @@
+/**
+ * This package includes Data for tests
+ */
 package utils;
 
 import org.springframework.ui.Model;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * This class contains things needed for tests
+ */
 public class DataTST {
-
+    /**
+     * This static method creating model
+     * @return model
+     */
     public static Model model(){
 
         Model model = new Model() {

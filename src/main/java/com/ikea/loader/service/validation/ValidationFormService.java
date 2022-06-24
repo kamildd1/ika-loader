@@ -1,3 +1,6 @@
+/**
+ * This package includes service for validation
+ */
 package com.ikea.loader.service.validation;
 
 import com.ikea.loader.model.Competition;

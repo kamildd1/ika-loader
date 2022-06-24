@@ -1,3 +1,6 @@
+/**
+ * This package includes implementation for DataStorage
+ */
 package com.ikea.loader.service.storage;
 
 import com.ikea.loader.model.Competition;
@@ -20,21 +23,6 @@ public class DataStorageImpl implements DataStorage {
     private DataStorageRepository dataStorageRepository;
     private CompetitionStorageRepository competitionStorageRepository;
     private PaymentStorageRepository paymentStorageRepository;
-
-    /**
-     *  This method finding the Player Object by id from database
-     * @param id Field representing the unique value
-     * @return Returns the Player with specified id
-     */
-    @Override
-    public Player getData(String id) {
-        Optional<Player> findData = dataStorageRepository.findById(id);
-        if (findData.isEmpty()) {
-            return null;
-        } else {
-            return findData.get();
-        }
-    }
 
     /**
      * This method finding the all Player Objects from database

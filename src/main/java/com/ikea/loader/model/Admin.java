@@ -1,3 +1,6 @@
+/**
+ * This package includes model for Admin
+ */
 package com.ikea.loader.model;
 
 /**

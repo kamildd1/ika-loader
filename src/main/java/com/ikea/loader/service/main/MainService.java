@@ -1,3 +1,6 @@
+/**
+ * This package includes methods connecting with Publisher Application
+ */
 package com.ikea.loader.service.main;
 
 import com.ikea.loader.model.Competition;

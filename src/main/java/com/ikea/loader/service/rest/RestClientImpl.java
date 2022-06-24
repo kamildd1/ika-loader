@@ -1,3 +1,6 @@
+/**
+ * This package includes implementation for RestClient
+ */
 package com.ikea.loader.service.rest;
 
 import lombok.AllArgsConstructor;

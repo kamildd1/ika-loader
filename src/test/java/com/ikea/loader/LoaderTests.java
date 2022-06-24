@@ -1,3 +1,6 @@
+/**
+ * This package includes tests for application
+ */
 package com.ikea.loader;
 
 import com.ikea.loader.model.Competition;
@@ -17,16 +20,23 @@ import utils.DataTST;
 import java.math.BigInteger;
 
 /**
- * Class execute the Mock Tests
+ * Class execute the Tests, testing validation for all models in application (Payment, Competition, Player)
  */
 @RunWith(SpringRunner.class)
-public class LoaderApplicationTestsV2 {
+public class LoaderTests {
 
     @Autowired
     private ValidationFormServiceImpl validationFormService;
 
+    /**
+     * This class contains configuration
+     */
     @TestConfiguration
     static class LoaderClassConfiguration{
+        /**
+         * This method contains ValidationFormService
+         * @return Implementation for ValidationFormService
+         */
         @Bean
         public ValidationFormService validationFormService(){
             return new ValidationFormServiceImpl();
@@ -88,7 +98,6 @@ public class LoaderApplicationTestsV2 {
                 .id(BigInteger.valueOf(6222))
                 .firstName("Jan")
                 .lastName("Kowalski")
-                //.dateOfBirth(1999-10-12)
                 .club("Warszawa")
                 .degree("Drugi")
                 .sex("Mężczyzna")

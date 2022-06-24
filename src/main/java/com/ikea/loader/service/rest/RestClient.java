@@ -1,3 +1,6 @@
+/**
+ * This package includes connection methods
+ */
 package com.ikea.loader.service.rest;
 
 import java.net.http.HttpResponse;

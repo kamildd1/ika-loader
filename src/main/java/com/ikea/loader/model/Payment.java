@@ -1,3 +1,6 @@
+/**
+ * This package includes model for Payment
+ */
 package com.ikea.loader.model;
 
 import lombok.Builder;
@@ -18,11 +21,12 @@ import java.time.format.DateTimeFormatter;
 @Setter
 @Builder
 @Entity
+@Table(name = "payment")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public BigInteger idPayments;
-    @OneToOne(mappedBy = "player", cascade = CascadeType.MERGE)
+    @OneToOne(mappedBy = "player", cascade = CascadeType.MERGE) //MERGE czyli scalenie(jedność), kopiuje stan danego obiektu na trwały o takim samym identyfikatorze
     public String firstName;
     public Long price;
     public String typeOfPrice;
@@ -31,14 +35,14 @@ public class Payment {
 
     /**
      * This method convert LocalDateTime to formatted string
-     * @param dateAndTime Input parameter for the conversion LocalDateTime
      * @return String variable containing the current date and time in a specific format
      */
     private String getDateTime(String dateAndTime){
-        dateTimeActual = LocalDateTime.now();
+        this.dateAndTime = dateAndTime;
+        this.dateTimeActual = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        dateAndTime = dateTimeActual.format(formatter);
-        return dateAndTime;
+        this.dateAndTime = dateTimeActual.format(formatter);
+        return this.dateAndTime;
     }
 
     public JSONObject toJson() {

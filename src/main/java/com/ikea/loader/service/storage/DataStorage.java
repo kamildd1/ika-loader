@@ -1,3 +1,6 @@
+/**
+ * This package includes methods downloading data from database
+ */
 package com.ikea.loader.service.storage;
 
 import com.ikea.loader.model.Competition;
@@ -9,12 +12,6 @@ import java.util.List;
  * Interface contains methods downloading data from the database
  */
 public interface DataStorage {
-    /**
-     * This method finding the Player Object by id from database
-     * @param id Field representing the unique value
-     * @return Returns the Player with specified id
-     */
-    Player getData(String id);
 
     /**
      * This method finding the all Player Objects from database

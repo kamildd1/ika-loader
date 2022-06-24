@@ -1,3 +1,6 @@
+/**
+ * This package includes model for PlayerKumite
+ */
 package com.ikea.loader.model;
 
 import lombok.Getter;
