@@ -28,11 +28,18 @@ public class ViewController {
 
     /**
      * Endpoint redirect to the login page
-     * @param user User
+     * @param user Admin
      * @return Template login
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@ModelAttribute User user) {
+    public String login(@ModelAttribute Admin user) {
+        return "login";
+    }
+
+
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public String test(Admin user){
         return "login";
     }
 
@@ -121,8 +128,8 @@ public class ViewController {
      */
     @RequestMapping(value = "/formPayment", method = RequestMethod.GET)
     public String showPaymentForm(Payment payment, Model model) {
-        List<Player> playerList = dataStorage.getAllDataPlayer();
-        model.addAttribute("playerList", playerList);
+        List<Payment> paymentList = dataStorage.getAllDataPayment();
+        model.addAttribute("paymentList", paymentList);
         return "formPayment";
     }
 

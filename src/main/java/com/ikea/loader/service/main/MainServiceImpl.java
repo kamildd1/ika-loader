@@ -3,9 +3,7 @@
  */
 package com.ikea.loader.service.main;
 
-import com.ikea.loader.model.Competition;
-import com.ikea.loader.model.Payment;
-import com.ikea.loader.model.Player;
+import com.ikea.loader.model.*;
 import com.ikea.loader.service.rest.RestClient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +23,8 @@ public class MainServiceImpl implements MainService {
         static final String URL_PUBLISHER_PLAYER = "http://localhost:8085/save/player";
         static final String URL_PUBLISHER_COMPETITION = "http://localhost:8085/save/competition";
         static final String URL_PUBLISHER_PAYMENT = "http://localhost:8085/save/payment";
+
+        static final String URL_PUBLISHER_USER = "http://localhost:8085/save/user";
     }
 
     /**
@@ -52,5 +52,10 @@ public class MainServiceImpl implements MainService {
     @Override
     public void processPaymentData(Payment payment){
         restClient.postRequest(URL_PUBLISHER_PAYMENT, payment.toJson().toString());
+    }
+
+    @Override
+    public void processUserData(User user){
+        restClient.postRequest(URL_PUBLISHER_USER, user.toJson().toString());
     }
 }

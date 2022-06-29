@@ -6,6 +6,7 @@ package com.ikea.loader.service.storage;
 import com.ikea.loader.model.Competition;
 import com.ikea.loader.model.Payment;
 import com.ikea.loader.model.Player;
+import com.ikea.loader.model.User;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class DataStorageImpl implements DataStorage {
     private DataStorageRepository dataStorageRepository;
     private CompetitionStorageRepository competitionStorageRepository;
     private PaymentStorageRepository paymentStorageRepository;
+    private UserStorageRepository userStorageRepository;
 
     /**
      * This method finding the all Player Objects from database
@@ -47,5 +49,10 @@ public class DataStorageImpl implements DataStorage {
     @Override
     public List<Payment> getAllDataPayment(){
         return paymentStorageRepository.findAll();
+    }
+
+    @Override
+    public List<User> getAllDataUser(){
+        return userStorageRepository.findAll();
     }
 }

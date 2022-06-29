@@ -6,6 +6,8 @@ package com.ikea.loader.service.storage;
 import com.ikea.loader.model.Competition;
 import com.ikea.loader.model.Payment;
 import com.ikea.loader.model.Player;
+import com.ikea.loader.model.User;
+
 import java.util.List;
 
 /**
@@ -31,4 +33,5 @@ public interface DataStorage {
      */
     List<Payment> getAllDataPayment();
 
+    List<User> getAllDataUser();
 }

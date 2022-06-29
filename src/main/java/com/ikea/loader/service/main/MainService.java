@@ -3,9 +3,7 @@
  */
 package com.ikea.loader.service.main;
 
-import com.ikea.loader.model.Competition;
-import com.ikea.loader.model.Payment;
-import com.ikea.loader.model.Player;
+import com.ikea.loader.model.*;
 
 /**
  * Interface contains connects with Publisher Application
@@ -29,4 +27,6 @@ public interface MainService {
      * @param payment Model Payment description a payment
      */
     void processPaymentData(Payment payment);
+
+    void processUserData(User user);
 }
