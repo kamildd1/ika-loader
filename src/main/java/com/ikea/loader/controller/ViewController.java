@@ -28,11 +28,11 @@ public class ViewController {
 
     /**
      * Endpoint redirect to the login page
-     * @param admin User
+     * @param user User
      * @return Template login
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@ModelAttribute Admin admin) {
+    public String login(@ModelAttribute User user) {
         return "login";
     }
 
