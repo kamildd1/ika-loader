@@ -31,15 +31,15 @@ public class ViewController {
      * @param user Admin
      * @return Template login
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@ModelAttribute Admin user) {
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(User user){
         return "login";
     }
 
 
-
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public String test(Admin user){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(@ModelAttribute Admin user) {
         return "login";
     }
 

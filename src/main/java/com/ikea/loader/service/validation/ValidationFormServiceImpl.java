@@ -6,6 +6,7 @@ package com.ikea.loader.service.validation;
 import com.ikea.loader.model.Competition;
 import com.ikea.loader.model.Payment;
 import com.ikea.loader.model.Player;
+import com.ikea.loader.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -17,8 +18,9 @@ public class ValidationFormServiceImpl implements ValidationFormService {
 
     /**
      * This method validates the input fields in Player form
+     *
      * @param player Model Player description a player
-     * @param model Object Model
+     * @param model  Object Model
      * @param isTest Boolean value
      * @return Result Player template
      */
@@ -64,9 +66,10 @@ public class ValidationFormServiceImpl implements ValidationFormService {
 
     /**
      * This method validates the input fields in Competition form
+     *
      * @param competition Model Competition description a competition
-     * @param model Object Model
-     * @param isTest Boolean value
+     * @param model       Object Model
+     * @param isTest      Boolean value
      * @return Result Player template
      */
     @Override
@@ -106,13 +109,14 @@ public class ValidationFormServiceImpl implements ValidationFormService {
 
     /**
      * This method validates the input fields in Payment form
+     *
      * @param payment Model Payment description a payment
-     * @param model Object Model
-     * @param isTest Boolean value
+     * @param model   Object Model
+     * @param isTest  Boolean value
      * @return Result Payment template
      */
     @Override
-    public String validatePaymentAndReturnPage(Payment payment, Model model, Boolean isTest){
+    public String validatePaymentAndReturnPage(Payment payment, Model model, Boolean isTest) {
         boolean isValid = true;
         StringBuilder message = new StringBuilder();
         if (!isTest) {
@@ -131,6 +135,29 @@ public class ValidationFormServiceImpl implements ValidationFormService {
                 return "resultPayment";
             } else {
                 return "formPayment";
+            }
+        } else return null;
+    }
+
+    @Override
+    public String validateUserAndReturnPage(User user, Model model, Boolean isTest) {
+        boolean isValid = true;
+        StringBuilder message = new StringBuilder();
+        if (!isTest) {
+            if (user.getLogin().isEmpty()) {
+                message.append("Login").append(", ");
+                isValid = false;
+            }
+            if (user.getPassword().isEmpty()) {
+                message.append("Password").append(", ");
+                isValid = false;
+            }
+            model.addAttribute("message", "must be not empty: " + message);
+
+            if (isValid) {
+                return "";
+            } else {
+                    return "";
             }
         } else return null;
     }

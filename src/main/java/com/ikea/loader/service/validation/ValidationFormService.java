@@ -6,6 +6,7 @@ package com.ikea.loader.service.validation;
 import com.ikea.loader.model.Competition;
 import com.ikea.loader.model.Payment;
 import com.ikea.loader.model.Player;
+import com.ikea.loader.model.User;
 import org.springframework.ui.Model;
 
 /**
@@ -38,4 +39,6 @@ public interface ValidationFormService {
      * @return Result Payment template
      */
     String validatePaymentAndReturnPage(Payment payment, Model model, Boolean isTest);
+
+    String validateUserAndReturnPage(User user, Model model, Boolean isTest);
 }

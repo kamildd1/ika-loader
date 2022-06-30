@@ -23,7 +23,6 @@ public class MainServiceImpl implements MainService {
         static final String URL_PUBLISHER_PLAYER = "http://localhost:8085/save/player";
         static final String URL_PUBLISHER_COMPETITION = "http://localhost:8085/save/competition";
         static final String URL_PUBLISHER_PAYMENT = "http://localhost:8085/save/payment";
-
         static final String URL_PUBLISHER_USER = "http://localhost:8085/save/user";
     }
 
