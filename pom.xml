@@ -8,12 +8,12 @@
 		<version>2.6.7</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.ikea</groupId>
+	<groupId>com.ika</groupId>
 	<artifactId>loader</artifactId>
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<name>loader</name>
-	<description>Admin Ikea App</description>
+	<description>Admin IKA APP</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
