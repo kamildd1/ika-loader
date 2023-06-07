@@ -4,7 +4,6 @@
 package com.ika.loader.controller;
 
 import com.ika.loader.model.*;
-import com.ikea.loader.model.*;
 import com.ika.loader.service.main.MainService;
 import com.ika.loader.service.storage.DataStorage;
 import com.ika.loader.service.validation.ValidationFormService;
